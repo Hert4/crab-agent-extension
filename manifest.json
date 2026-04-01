@@ -1,0 +1,129 @@
+{
+  "manifest_version": 3,
+  "name": "Crab-Agent",
+  "version": "2.3.0",
+  "description": "AI Browser Agent",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "tabGroups",
+    "activeTab",
+    "scripting",
+    "storage",
+    "debugger",
+    "webNavigation",
+    "sidePanel",
+    "clipboardWrite",
+    "clipboardRead",
+    "offscreen",
+    "downloads",
+    "notifications",
+    "system.display",
+    "alarms",
+    "contextMenus",
+    "identity"
+  ],
+  "commands": {
+    "toggle-recording": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Toggle workflow recording"
+    },
+    "open-workflows": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+W",
+        "mac": "Command+Shift+W"
+      },
+      "description": "Open workflows panel"
+    }
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    },
+    "default_title": "Open Crab-Agent"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/BaxMRxp2.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "js": [
+        "assets/BN6BWhrr.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "js": [
+        "assets/W5E5Tz_9.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'",
+    "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+  },
+  "sandbox": {
+    "pages": [
+      "visualizer-sandbox.html"
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "lib/buildDomTree.js",
+        "lib/accessibility-tree-inject.js",
+        "lib/stateManager.js",
+        "lib/visualIndicator.js",
+        "lib/canvas-toolkit/*",
+        "lib/workflowRecorder.js",
+        "lib/workflowMatcher.js",
+        "lib/workflowParameterizer.js",
+        "lib/workflowPlayer.js",
+        "animations/*.svg",
+        "assets/BaxMRxp2.js",
+        "assets/BN6BWhrr.js",
+        "assets/W5E5Tz_9.js"
+      ],
+      "use_dynamic_url": false
+    }
+  ]
+}

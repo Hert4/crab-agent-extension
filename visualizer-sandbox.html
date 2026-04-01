@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; }
+  body { padding: 8px; font-family: "Inter", system-ui, -apple-system, sans-serif; }
+</style>
+</head>
+<body>
+<script>
+// Sandbox page for visualizer — relaxed CSP allows inline scripts + CDN.
+// Parent sends content via postMessage; we render and report height back.
+
+window.addEventListener('message', function(e) {
+  if (!e.data || e.data.type !== 'render-viz') return;
+
+  var vizId = e.data.id || '';
+  var css = e.data.css || '';
+  var content = e.data.content || '';
+
+  // Height reporting script — polls aggressively to catch async renders (Chart.js)
+  var resizeScript = '<script>' +
+    'var _vizId="' + vizId + '";' +
+    'var _lastH=0;' +
+    'function _vizRH(){' +
+      'var h=Math.max(document.body.scrollHeight||0,document.body.offsetHeight||0,document.documentElement.scrollHeight||0);' +
+      'if(h>_lastH){_lastH=h;parent.postMessage({type:"viz-resize",id:_vizId,h:h},"*");}' +
+    '}' +
+    // Fire on load
+    'window.addEventListener("load",function(){_vizRH();});' +
+    // Poll frequently for first 5 seconds (catches Chart.js async render)
+    'var _t=0;' +
+    'function _poll(){_vizRH();_t+=200;if(_t<5000)setTimeout(_poll,200);}' +
+    '_poll();' +
+    // MutationObserver as backup
+    'try{new MutationObserver(function(){setTimeout(_vizRH,50);}).observe(document.documentElement,{childList:true,subtree:true,attributes:true});}catch(e){}' +
+    '<\/script>';
+
+  document.open();
+  document.write(
+    '<!DOCTYPE html><html><head><style>' + css + '</style></head>' +
+    '<body style="overflow:visible;">' + content + resizeScript + '</body></html>'
+  );
+  document.close();
+});
+
+// Signal ready to parent
+parent.postMessage({ type: 'viz-ready' }, '*');
+</script>
+</body>
+</html>
