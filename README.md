@@ -18,12 +18,7 @@ A Chrome extension that turns your browser into an AI agent. Type commands in Vi
 
 ## Usage
 
-Open the side panel and type tasks in natural language. Examples:
-
-* *"Find the cheapest flight to Tokyo next Friday"*
-* *"Read all comments in PR #42 and summarize them"*
-* *"Fill out the registration form with name Hert, email ..."*
-* *"Open 3 tabs to compare iPhone prices on Shopee, Lazada, and Tiki"*
+Do anything you want in browser
 
 The agent will:
 take screenshots → read the DOM → call the LLM → perform actions → repeat until completion.
