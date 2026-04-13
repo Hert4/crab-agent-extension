@@ -82,8 +82,7 @@ The agent returns compact commands instead of full tool calls — faster for sim
 Extensively tested and optimized for **Claude Opus 4.5** (`claude-opus-4-5`).
 Models at this tier or higher perform best — fewer hallucinated tool calls, better multi-step planning, and stronger handling of edge cases.
 
-Smaller models (Haiku, GPT-4o-mini, Gemini Flash) still work, but may require more steps or struggle with complex tasks.
-
+_Other models can still perform reasonably well, including Gemini 3.0/3.1 and GPT-5.4. Some alternatives like Qwen3-Coder-Next-Int8 or Qwen3.5-122B-A10B are also usable, but generally don’t match the overall performance and consistency of top-tier models._
 ---
 
 ## Tools (30+)
