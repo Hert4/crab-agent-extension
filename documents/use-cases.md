@@ -193,6 +193,8 @@ Watch this page and let me know when the "Apply" button appears
 Monitor my Gmail for any email from boss@company.com and notify me
 ```
 
+_after tries many models, only `claude-opus-4-5` (higher version) can do this correctly_
+
 See [Scheduling](scheduling.md) for timed tasks and reminders.
 
 ---
