@@ -1,6 +1,6 @@
 # Crab-Agent
 
-A Chrome extension that turns your browser into an AI agent. Type commands in Vietnamese or English — it automatically clicks, types, navigates, reads pages, and gets things done.
+A Chrome extension that turns your browser into an AI agent. Type commands — it automatically clicks, types, navigates, reads pages, and gets things done.
 
 **Version:** 2.3.0 | **License:** MIT
 
