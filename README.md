@@ -74,8 +74,8 @@ The agent returns compact commands instead of full tool calls — faster for sim
 | Provider              | Notes                                                   |
 | --------------------- | ------------------------------------------------------- |
 | **Anthropic**         | Best performance. Recommend `claude-opus-4-5` or higher |
-| **OpenAI**            | GPT-4o, GPT-4.1                                         |
-| **Google Gemini**     | Gemini 2.5 Pro                                          |
+| **OpenAI**            | gpt-5.4, gpt-5.4-pro                                    |
+| **Google Gemini**     | Gemini 3.1 Pro                                          |
 | **OpenRouter**        | Gateway supporting multiple models                      |
 | **Ollama**            | Local, free                                             |
 | **OpenAI-compatible** | Any API compatible with OpenAI format                   |
