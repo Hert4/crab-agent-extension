@@ -6,6 +6,23 @@ A Chrome extension that turns your browser into an AI agent. Type commands in Vi
 
 ---
 
+## Documentation
+
+New to Crab-Agent? Start here:
+
+| Guide | Description |
+|-------|-------------|
+| [Getting Started](documents/getting-started.md) | Installation, setup, and your first task |
+| [Use Cases](documents/use-cases.md) | Real examples you can copy-paste — search, email, forms, scraping, and more |
+| [Workflows](documents/workflows.md) | Record and replay browser actions like macros |
+| [Memory & Rules](documents/memory-and-rules.md) | How Crab learns and remembers across sessions |
+| [Scheduling](documents/scheduling.md) | Timers, reminders, and recurring tasks |
+| [Canvas & Design](documents/canvas-and-design.md) | Create posters, generative art, and work with Figma/Miro |
+| [Providers](documents/providers.md) | Choose and set up your AI provider (Anthropic, OpenAI, Gemini, Ollama, etc.) |
+| [Tips & Troubleshooting](documents/tips-and-troubleshooting.md) | Best practices, common errors, and fixes |
+
+---
+
 ## Installation
 
 1. Download or clone this repository
