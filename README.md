@@ -1,94 +1,121 @@
-# Crab-Agent 🦀
+# Crab-Agent
 
-Chrome extension biến trình duyệt thành AI agent. Gõ lệnh bằng tiếng Việt/Anh, nó tự click, gõ, điều hướng, đọc trang — làm hết.
+A Chrome extension that turns your browser into an AI agent. Type commands in Vietnamese or English — it automatically clicks, types, navigates, reads pages, and gets things done.
 
 **Version:** 2.3.0 | **License:** MIT
 
 ---
 
-## Cài đặt
+## Installation
 
-1. Tải/clone repo này
-2. Mở `chrome://extensions` → bật **Developer mode**
-3. Click **Load unpacked** → chọn thư mục repo
-4. Vào trang bất kỳ → click icon Crab-Agent để mở side panel
-5. Vào **Settings** → nhập API key của provider bạn chọn
+1. Download or clone this repository
+2. Open `chrome://extensions` → enable **Developer mode**
+3. Click **Load unpacked** → select the repository folder
+4. Open any website → click the Crab-Agent icon to open the side panel
+5. Go to **Settings** → enter your chosen provider’s API key
 
-## Sử dụng
+---
 
-Mở side panel, gõ task bằng ngôn ngữ tự nhiên. Ví dụ:
+## Usage
 
-- *"Tìm vé máy bay rẻ nhất đi Tokyo thứ 6 tuần sau"*
-- *"Đọc hết comment trong PR #42 rồi tóm tắt lại"*
-- *"Fill form đăng ký với thông tin: tên Hert, email ..."*
-- *"Mở 3 tab so sánh giá iPhone trên Shopee, Lazada, Tiki"*
+Open the side panel and type tasks in natural language. Examples:
 
-Agent sẽ tự chụp screenshot → đọc DOM → gọi LLM → thực hiện action → lặp lại đến khi xong.
+* *"Find the cheapest flight to Tokyo next Friday"*
+* *"Read all comments in PR #42 and summarize them"*
+* *"Fill out the registration form with name Hert, email ..."*
+* *"Open 3 tabs to compare iPhone prices on Shopee, Lazada, and Tiki"*
 
-### Permission Modes
+The agent will:
+take screenshots → read the DOM → call the LLM → perform actions → repeat until completion.
 
-| Mode | Mô tả |
-|------|-------|
-| **Ask** (mặc định) | Hỏi trước khi thao tác trên domain mới |
-| **Auto** | Tự động chạy, không hỏi |
-| **Strict** | Hỏi từng action một |
+---
 
-### Workflows
+## Permission Modes
 
-- Bấm record → thao tác trên trình duyệt → stop → lưu workflow
-- Sau này gõ lệnh liên quan, agent tự gọi workflow đã lưu
-- Hỗ trợ parameterize (truyền biến vào workflow)
+| Mode              | Description                           |
+| ----------------- | ------------------------------------- |
+| **Ask** (default) | Prompts before acting on a new domain |
+| **Auto**          | Runs automatically without asking     |
+| **Strict**        | Asks before every action              |
 
-### Memory
+---
 
-Agent nhớ thông tin bạn chia sẻ giữa các session (tên, preference, rule). Sau vài session, nó tự dọn dẹp memory (dream consolidation) để giữ gọn.
+## Workflows
 
-### Scheduler
+* Click record → perform actions in the browser → stop → save workflow
+* Later, when you enter a related command, the agent automatically reuses the saved workflow
+* Supports parameterization (passing variables into workflows)
 
-Đặt lịch task chạy tự động — một lần hoặc lặp lại theo cron. Agent chạy headless qua Chrome alarms.
+---
 
-### Quick Mode
+## Memory
 
-Bật trong Settings. Agent trả lệnh compact thay vì tool call, nhanh hơn cho task đơn giản.
+The agent remembers information you share across sessions (name, preferences, rules).
+After several sessions, it automatically cleans up memory (“dream consolidation”) to stay efficient.
+
+---
+
+## Scheduler
+
+Schedule tasks to run automatically — once or on a recurring cron basis.
+Runs headlessly using Chrome alarms.
+
+---
+
+## Quick Mode
+
+Enable in Settings.
+The agent returns compact commands instead of full tool calls — faster for simple tasks.
+
+---
 
 ## LLM Providers
 
-| Provider | Ghi chú |
-|----------|---------|
-| **Anthropic** | Tối ưu nhất. Recommend `claude-opus-4-5` trở lên |
-| **OpenAI** | GPT-4o, GPT-4.1 |
-| **Google Gemini** | Gemini 2.5 Pro |
-| **OpenRouter** | Gateway, dùng model nào cũng được |
-| **Ollama** | Chạy local, free |
-| **OpenAI-compatible** | Bất kỳ API nào tương thích OpenAI format |
+| Provider              | Notes                                                   |
+| --------------------- | ------------------------------------------------------- |
+| **Anthropic**         | Best performance. Recommend `claude-opus-4-5` or higher |
+| **OpenAI**            | GPT-4o, GPT-4.1                                         |
+| **Google Gemini**     | Gemini 2.5 Pro                                          |
+| **OpenRouter**        | Gateway supporting multiple models                      |
+| **Ollama**            | Local, free                                             |
+| **OpenAI-compatible** | Any API compatible with OpenAI format                   |
 
-### Model khuyến nghị
+---
 
-Đã test kỹ và tối ưu prompt cho **Claude Opus 4.5** (`claude-opus-4-5`). Các model từ tier này trở lên cho kết quả tốt nhất — ít hallucinate tool call, follow multi-step plan chính xác hơn, xử lý edge case tốt.
+## Recommended Models
 
-Các model nhỏ hơn (Haiku, GPT-4o-mini, Gemini Flash) vẫn chạy được nhưng có thể cần nhiều step hơn hoặc fail ở task phức tạp.
+Extensively tested and optimized for **Claude Opus 4.5** (`claude-opus-4-5`).
+Models at this tier or higher perform best — fewer hallucinated tool calls, better multi-step planning, and stronger handling of edge cases.
+
+Smaller models (Haiku, GPT-4o-mini, Gemini Flash) still work, but may require more steps or struggle with complex tasks.
+
+---
 
 ## Tools (30+)
 
-Agent tự chọn tool phù hợp mỗi step:
+The agent automatically selects the right tool at each step:
 
-**Browser:** click, type, scroll, drag, navigate, back/forward, tab create/switch/close
-**Page:** read DOM, find element, get text, read console, read network, form fill
+**Browser:** click, type, scroll, drag, navigate, back/forward, create/switch/close tabs
+**Page:** read DOM, find elements, extract text, read console, inspect network, fill forms
 **File:** upload, download, image upload
 **Advanced:** JavaScript execution, canvas toolkit, code editor, document generator (DOCX/HTML), GIF recorder, SVG visualizer
-**Agent:** memory CRUD, suggest rule, update plan, schedule task, run workflow
+**Agent:** memory CRUD, rule suggestion, plan updates, task scheduling, workflow execution
+
+---
 
 ## Tech Stack
 
 React 18 · TypeScript · Vite · Tailwind CSS · Zustand · Chrome MV3
 
+---
+
 ## Credits
 
-Dự án này có sử dụng và tham khảo từ:
+This project is inspired by and references:
 
-- **[Clawd Tank](https://github.com/marciogranzotto/clawd-tank)** by Marcio Granzotto — mascot "Clawd" crab pixel-art và SVG animations
-- **Claude Computer Use** (Anthropic) — tham khảo agent loop logic và browser automation pattern (screenshot → observe → decide → act)
+* Clawd Tank by Marcio Granzotto — crab mascot pixel art and SVG animations
+* Claude Computer Use (Anthropic) — agent loop logic and browser automation patterns (screenshot → observe → decide → act)
 
 ---
 
-Built by [Hert4](https://github.com/Hert4)
+Built by Hert4
