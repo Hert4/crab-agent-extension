@@ -1,10 +1,11 @@
 # Use Cases
 
-Crab can do almost anything you'd normally do in a browser. Below are real examples you can copy-paste into the chat.
+![Guide](https://img.shields.io/badge/guide-use%20cases-7c3aed?style=flat-square)
+![Examples](https://img.shields.io/badge/examples-30%2B-blue?style=flat-square)
 
----
+Crab can do almost anything you would normally do in a browser. The examples below are ready to copy and paste into the chat.
 
-## Web Browsing & Search
+## Web Browsing and Search
 
 ```
 Search Google for "best budget laptops 2025" and open the top 3 results in new tabs
@@ -18,9 +19,7 @@ Go to wikipedia.org and find the population of Tokyo
 Open reddit.com/r/programming and summarize the top 5 posts today
 ```
 
----
-
-## Email & Messaging
+## Email and Messaging
 
 ```
 Open Gmail, compose a new email to john@example.com with subject "Meeting Tomorrow"
@@ -35,9 +34,7 @@ Open my Gmail inbox and tell me how many unread emails I have
 Go to Slack and send "Build is ready for review" to the #engineering channel
 ```
 
-> For messaging apps, Crab uses Shift+Enter for newlines automatically.
-
----
+> For messaging apps, Crab uses Shift+Enter for newlines automatically so it does not send mid-message.
 
 ## Form Filling
 
@@ -45,7 +42,7 @@ Go to Slack and send "Build is ready for review" to the #engineering channel
 Fill out this contact form with:
 Name: Jane Smith
 Email: jane@example.com
-Message: I'd like to request a demo of your product.
+Message: I would like to request a demo of your product.
 Then submit it.
 ```
 
@@ -54,8 +51,6 @@ Go to this job application page and fill in my details:
 Name: Alex Park, Email: alex@gmail.com, Phone: 555-0123
 Upload my resume from the downloads folder.
 ```
-
----
 
 ## Data Extraction
 
@@ -72,8 +67,6 @@ with name, price, and rating
 Extract all the links from this page and tell me which ones are external
 ```
 
----
-
 ## File Management
 
 ```
@@ -89,12 +82,10 @@ the key points from this article
 Upload the image from my desktop to this form's file input
 ```
 
----
-
 ## Social Media
 
 ```
-Open Twitter and compose a tweet: "Just shipped a new feature! 🚀"
+Open Twitter and compose a tweet: "Just shipped a new feature"
 ```
 
 ```
@@ -107,9 +98,7 @@ Open YouTube and search for "learn typescript in 10 minutes"
 
 > Crab asks for confirmation before posting publicly.
 
----
-
-## Shopping & Price Tracking
+## Shopping and Price Tracking
 
 ```
 Go to amazon.com, search for "noise cancelling headphones",
@@ -124,13 +113,11 @@ Compare the price of iPhone 16 on amazon.com vs bestbuy.com
 Watch this product page and tell me if the price drops below $50
 ```
 
----
-
 ## Developer Tasks
 
 ```
 Go to github.com/my-repo/issues and create a new issue titled
-"Fix login redirect bug" with label "bug"
+"Fix login redirect bug" with the label "bug"
 ```
 
 ```
@@ -141,9 +128,7 @@ Open this pull request and summarize the changes
 Go to my Vercel dashboard and check if the latest deployment succeeded
 ```
 
----
-
-## Research & Summarization
+## Research and Summarization
 
 ```
 Open this article and give me a 3-bullet summary
@@ -159,11 +144,9 @@ Go to Hacker News, find posts about AI agents, and list the top 5
 with their points and comment counts
 ```
 
----
-
 ## Multi-Step Tasks
 
-Crab handles complex, multi-step instructions naturally:
+Crab handles complex instructions naturally.
 
 ```
 1. Go to Google Flights
@@ -181,8 +164,6 @@ type today's date as a heading, then add bullet points:
 - Action items assigned
 ```
 
----
-
 ## Monitoring
 
 ```
@@ -195,16 +176,16 @@ Monitor my Gmail for any email from boss@company.com and notify me
 
 See [Scheduling](scheduling.md) for timed tasks and reminders.
 
----
-
 ## More Ideas
 
-- Check flight status on airline websites
-- Track package delivery progress
-- Fill out government/tax forms
-- Manage calendar events in Google Calendar
-- Translate entire web pages by reading and rewriting content
-- Take screenshots of specific pages for documentation
-- Test your own web app by clicking through user flows
+| Idea | Notes |
+|---|---|
+| Flight status check | Crab reads airline pages and reports delays |
+| Package tracking | Crab can pull status across carriers |
+| Tax forms and government portals | Step-by-step form filling |
+| Calendar management | Google Calendar event creation and edits |
+| Whole-page translation | Read and rewrite content inline |
+| Documentation screenshots | Capture specific pages for write-ups |
+| Web app QA | Walk through user flows on your own app |
 
-The limit is your imagination. If you can do it in a browser, Crab can probably do it too.
+If you can do it in a browser, Crab can probably do it too.
