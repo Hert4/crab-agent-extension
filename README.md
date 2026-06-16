@@ -90,15 +90,7 @@ See [Providers](documents/providers.md) for setup instructions and model recomme
 
 ## Recommended Models
 
-Crab-Agent is extensively tested with **Claude Sonnet 4.6** and **Claude Opus 4.6**. Top-tier models give the fewest hallucinated tool calls, the strongest multi-step planning, and the best handling of edge cases.
-
-Other capable options:
-
-| Model | Why pick it |
-|---|---|
-| Gemini 2.5 Pro | Strong vision support, generous free tier |
-| GPT-4o / o3 | Reliable general-purpose alternative |
-| Qwen and Llama via Ollama | Free, private, runs on your own hardware |
+Crab-Agent is extensively tested with **Claude Sonnet 4.6**, **Claude Opus 4.x** and **Gemini-3.5-Flash**,. Top-tier models give the fewest hallucinated tool calls, the strongest multi-step planning, and the best handling of edge cases.
 
 Smaller or older models can still work for simple tasks but tend to make more mistakes on long sequences.
 
