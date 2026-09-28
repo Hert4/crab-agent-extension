@@ -127,3 +127,6 @@ There are 30+ tools in total. See the developer docs in the source repository fo
 ## License
 
 MIT. Built by [Hert4](https://github.com/Hert4).
+
+*Prohibit any action that is dangerous or harmful.*
+*The user is solely responsible for any misuse of the software or any use for malicious or unlawful purposes.*
